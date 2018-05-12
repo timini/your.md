@@ -1,4 +1,4 @@
-import { createReadStream } from 'fs';
+import { createReadStream, createWriteStream } from 'fs';
 import unzip from 'unzip';
 import { EOL } from 'os';
 
@@ -7,11 +7,11 @@ const loadPhrases = (path) => new Promise((resolve, reject) => {
   createReadStream(path)
   .pipe(unzip.Parse())
   .on('entry', file => {
-    let phrases = [];
+    let text = '';
     file.on('data', chunk => {
-      phrases = phrases.concat(chunk.toString('utf-8').split(EOL));
+      text = text + chunk.toString('utf-8');
     })
-    file.on('end', () => resolve(phrases));
+    file.on('end', () => resolve(text.split(EOL)));
   })
 });
 

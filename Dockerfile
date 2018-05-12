@@ -22,6 +22,7 @@ RUN yarn install --pure-lockfile
 
 # copy source
 COPY . /app/
+RUN yarn build
 
 # entrypoint
-CMD yarn start
+CMD yarn run server

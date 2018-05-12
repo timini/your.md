@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "NODE_ENV=development nodemon --exec npx babel-node -- ./src/index.js",
-    "build": "babel src -d dist"
+    "build": "npx babel src -d dist",
+    "server": "node dist/index.js"
   },
   "devDependencies": {
     "unzip": "^0.1.11"
