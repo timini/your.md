@@ -14,3 +14,5 @@ Set environment variables to configure the application e.g `PORT`, `NODE_ENV`, `
 This can be done in the docker-compose file but it is preferred that you use `.env` file
 
 create `.env.local` for local overrides to the environment which will not be picked up by source control
+
+Do not add secrets to `.env` as they will be commited to source control, instead add them to your local overrides - `.env.local`.
