@@ -22,7 +22,7 @@ RUN yarn install --pure-lockfile
 
 # copy source
 COPY . /app/
-RUN yarn build
+RUN npm run build
 
 # entrypoint
-CMD yarn run server
+CMD node dist/index.js
